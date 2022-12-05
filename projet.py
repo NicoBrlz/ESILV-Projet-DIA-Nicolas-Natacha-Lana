@@ -17,10 +17,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
-#map
-import folium
-from folium.plugins import HeatMap
-
 #modelisation
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
@@ -72,7 +68,7 @@ for i in range(len(col)):
 
 #Titre sur l'API
 st.title('La league des joueurs de StarCraft II selon leurs statistiques')
-st.subheader("Estimez votre rang à partir de vos statistiques grâce à une étude menée sur l'ensemmble des joueurs!")
+st.subheader("Estimez votre rang à partir de vos statistiques grâce à une étude menée sur l'ensemble des joueurs!")
 st.sidebar.title('Réglages') #Crée des réglages sur le côté
 
 data = st.sidebar.checkbox('Afficher le dataframe')
@@ -110,7 +106,7 @@ if league:
     fig2.update_layout(xaxis={'categoryorder' : 'array', 'categoryarray' : ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Master', 'GrandMaster', 'Professional'], 'title' : 'leagues'}, yaxis={'title' : option})
 
     st.write(fig1)
-    st.write("Il y a plus de joueurs dans la league Platinum et Diamond. \nNous remarquons que la plupart des joueurs se situent dans les leagues 'moyennes'. Il semble qu'il soit facile de progresser vers la league Platinum/Diamond, mais pour atteindre la league Master ou GrandMaster, de sérieuses compétences sont nécessaires.")
+    st.write("Il y a plus de joueurs dans les leagues Platinum et Diamond. \nNous remarquons que la plupart des joueurs se situent dans les leagues 'moyennes'. Il semble qu'il soit facile de progresser vers la league Platinum/Diamond, mais pour atteindre la league Master ou GrandMaster, de sérieuses compétences sont nécessaires.")
 
     st.write('Etude sur les leagues')
     st.write(fig2)
