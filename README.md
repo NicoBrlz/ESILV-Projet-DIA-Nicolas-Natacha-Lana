@@ -4,6 +4,12 @@ Répertoire du projet DIA 2022
 Nicolas BERLIOZ, Lana BONHOMME, Natacha Batmini BATMANABANE
 Groupe DIA1
 
+# Contenu
+- le dataset (.csv)
+- le notebook (.ipynb)
+- le code pour l'API streamlit (.py)
+- la présentation (.ppt)
+
 # Le dataset
 Le dataset contient des données concernant les statistiques et la league de joueurs de Starcraft II, un jeu en ligne axé sur le mode compétitif, ayant une scène e-sport d'envergure mondiale.
 Lien : http://archive.ics.uci.edu/ml/machine-learning-databases/00272/SkillCraft1_Dataset.csv
@@ -13,11 +19,12 @@ lien du notebook (vous le trouverez aussi sur le github) :
 https://colab.research.google.com/drive/1RphVNvVR_t_WZ6qGyxUMtzR1Koo-ZH42?usp=sharing&fbclid=IwAR2wb5I6nz5NoJiGgbMVQ_hyt6RFy232asWHyBYNcY08mcFfVGTBi-j3yPY#scrollTo=TYRspZfosIos
 
 
-Le meilleur modèle est le gradient boosting avec un R²=0.56. C'est celui qu'on utilse dans notre API pour déterminer la leaguedes joueurs.
+Le meilleur modèle est un Random Forest Classifier avec une précision (accuracy) de 0,63. C'est celui qu'on utilse dans notre API pour déterminer la league des joueurs en rentrant leurs statistiques dans les réglages.
 
-Nous voulions savoir comment déterminer la leagued'un joueur à partir de ces statistiques.
+Nous voulions savoir comment déterminer la league d'un joueur à partir de ces statistiques.
 
-Les caractéristiques pour déterminer la leagued'un joueur sont 'HoursPerWeek', 'Actions par minute', 'SelectByHotkeys', 'AssignToHotkeys','UniqueHotkeys', 'MinimapAttacks', 'NumberOfPACs', 'GapBetweenPACs','ActionLatency', 'ActionsInPAC', 'WorkersMade'
+Les caractéristiques pour déterminer la leagued'un joueur sont 'HoursPerWeek', 'Actions par minute', 'SelectByHotkeys', 'AssignToHotkeys','UniqueHotkeys', 'MinimapAttacks', 'NumberOfPACs', 'GapBetweenPACs','ActionLatency', 'ActionsInPAC', 'WorkersMade'.
+Nous les avons choisies en prenant les variables ayant une bonne corrélation avec la League, puis en supprimant certaines ayant une trop forte corrélation entre elles afin d'éviter l'overfitting.
 
 Problème rencontrés:
 
