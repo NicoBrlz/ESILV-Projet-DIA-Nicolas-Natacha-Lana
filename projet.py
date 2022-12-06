@@ -57,13 +57,6 @@ def replace_question_mark(df):
         df[col] = df[col].apply(lambda x : np.NaN if(x == '?') else x)
 replace_question_mark(sc)
 
-sc.dropna(inplace = True)
-
-from collections import defaultdict
-col = ['Age','HoursPerWeek','TotalHours' ]
-for i in range(len(col)):
-    sc[col[i]] = sc[col[i]].astype(int)
-
 #%% Analyses 
 
 #Titre sur l'API
@@ -138,6 +131,14 @@ if league:
 
 
 #%% Modele
+
+sc.dropna(inplace = True)
+
+from collections import defaultdict
+col = ['Age','HoursPerWeek','TotalHours' ]
+for i in range(len(col)):
+    sc[col[i]] = sc[col[i]].astype(int)
+
 
 st.subheader('II. Le modèle')
 st.sidebar.subheader('II. Le modèle')
