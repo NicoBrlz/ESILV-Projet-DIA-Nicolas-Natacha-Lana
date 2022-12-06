@@ -27,6 +27,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
 from sklearn.model_selection import GridSearchCV
+from imblearn.over_sampling import SMOTE
 
 #time
 from datetime import datetime
@@ -146,7 +147,11 @@ st.sidebar.subheader('II. Le modèle')
 X = sc.drop(['Age','GameID','TotalHours','TotalMapExplored','ComplexAbilitiesUsed','ComplexUnitsMade','UniqueUnitsMade','MinimapRightClicks','Leagues', 'LeagueIndex'], axis = 1)
 Y = sc.LeagueIndex
 
-X_train, X_test, Y_train,Y_test = train_test_split(X, Y, test_size = 0.2)
+sm = SMOTE(k_neighbors = 3 ,random_state=42)
+X_res, Y_res = sm.fit_resample(X, Y)
+
+
+X_train, X_test, Y_train,Y_test = train_test_split(X_res, Y_res, test_size = 0.2)
 
 scaler = preprocessing.StandardScaler().fit(X_train)
 X_train = scaler.transform(X_train)
@@ -154,8 +159,8 @@ X_train = scaler.transform(X_train)
 scalert = preprocessing.StandardScaler().fit(X_test)
 X_test = scalert.transform(X_test)
 
+model = RandomForestClassifier(n_estimators = 80, max_depth = 3)
 
-model = GradientBoostingClassifier(n_estimators = 80, max_depth = 3)
 model.fit(X_train, Y_train)
 Y_pred = model.predict(X_test[1].reshape(1, -1))
 
@@ -193,7 +198,7 @@ if mod :
         rank = dict_league[pred]
 
         st.image(dict_image[rank], width = 300)
-        st.write(f"----> {rank} <----")
+        st.write(f"----> {rank} <---- {pred}")
         
     
 
