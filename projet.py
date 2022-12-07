@@ -198,7 +198,7 @@ if mod :
         rank = dict_league[pred]
 
         st.image(dict_image[rank], width = 300)
-        st.write(f"----> {rank} <---- {pred}")
+        st.write(f"----> {rank} <----")
         
     
 
