@@ -8,7 +8,7 @@ Groupe DIA1
 - le dataset (.csv)
 - le notebook (.ipynb)
 - le code pour l'API streamlit (.py)
-- la présentation (.pdf)
+- la présentation en anglais et en français (.pdf)
 
 # Le dataset
 Le dataset contient des données concernant les statistiques et la league de joueurs de Starcraft II, un jeu en ligne axé sur le mode compétitif, ayant une scène e-sport d'envergure mondiale.
